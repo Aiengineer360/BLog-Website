@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="card p-4" style="max-width: 400px; width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 class="text-center mb-4">Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-dark w-25 mb-3">Login</button>
+        </form>
+        <p class="text-center mt-3">
+            Don't have an account? <a href="{% url 'register' %}" class="text-secondary">Register here</a>.
+        </p>
+        <p class="text-center">
+            <a href="{% url 'password_reset' %}" class="text-secondary">Forgot Password?</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
